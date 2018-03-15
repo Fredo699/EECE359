@@ -81,7 +81,7 @@ architecture Behavioral of CRC is
 	signal frame_in_d1 : std_logic ; -- frame_in delayed one system clk
 	
 	-- shift register used for generating the FCS or checking data for errors
-	signal C_reg : std_logic_vector (fcs_length - 1 downto 0) ;
+	signal C_reg : std_logic_vector (fcs_length - 1 downto 0) := (others=>'0');
 	
 	-- input to C_reg
 	signal C_reg_in : std_logic ;
@@ -124,8 +124,8 @@ begin
 	process (clk)
 	begin
 		if rising_edge(clk) then
-			data_in_d2 <= data_in_d1 ;
 			data_in_d1 <= data_in ;
+			data_in_d2 <= data_in_d1 ;
 		end if ;		
 	end process ;
 
@@ -135,11 +135,8 @@ begin
 	process (clk)
 	begin
 		if rising_edge(clk) then
-			dclk_in_d2 <= dclk_in_d1 ;
 			dclk_in_d1 <= dclk_in ;
-		else
-			dclk_in_d1 <= dclk_in_d1 ;
-			dclk_in_d2 <= dclk_in_d2 ;
+			dclk_in_d2 <= dclk_in_d1 ;
 		end if ;
 	end process ;	
 
@@ -204,9 +201,9 @@ begin
 	--		C_reg_in with the previous C_reg bit
 	process(clk) begin
 		if rising_edge(clk) then
-			if clr_CReg = '1' then
+			if clr_CReg = '1' or rst='1' then
 				C_Reg <= (others=>'0');
-			elsif shift_Creg and shift_enable then
+			elsif (shift_Creg and shift_enable) = '1' then
 				for I in fcs_length-1 downto 1 loop
 					if P(I) = '1' then
 						C_Reg(I) <= C_Reg(I - 1) xor (C_reg_in);
@@ -214,6 +211,7 @@ begin
 						C_Reg(I) <= C_Reg(I - 1);
 					end if;
 				end loop;
+				C_Reg(0) <= C_reg_in;
 			end if;
 		end if;
 	end process;
@@ -228,7 +226,9 @@ begin
 	--		edge of the dclk (use the C_reg_out_enable signal)
 	process(clk) begin
 		if rising_edge(clk) then
-			if C_reg_out_enable = '1' then 
+			if rst = '1' then
+				C_reg_out <= '0';
+			elsif C_reg_out_enable = '1' then 
 				C_reg_out <= C_Reg(fcs_length-1);
 			end if;
 		end if;
@@ -240,7 +240,15 @@ begin
 	--    then selects the C_reg_out register while the CRC is being shifted out 
 	--    and '0' when there is no data to be output
 	-- the timing of data_in is selected to match the delay produced by C_reg_out
-	
+	process(shift_enable, C_reg_out_enable, data_in_d2, C_reg_out) begin
+		if (shift_enable = '1') then
+			data_out_MUX <= data_in_d2;
+		elsif (C_reg_out_enable = '1') then
+			data_out_MUX <= C_reg_out;
+		else
+			data_out_MUX <= '0';
+		end if;
+	end process;
 
 	-- (data_out)
 	-- data output is the output of the data_out_MUX
@@ -250,16 +258,26 @@ begin
 	-- counter that counts the FCS bits sent
 	-- the counter is to be reset to zero using reset_FBC
 	-- the counter counts up when enabled by incr_FBC and FBC_clk_en
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	process(clk) begin
+		if rising_edge(clk) then
+			if reset_FBC = '1' or rst='1' then
+				fcs_bit_ctr <= to_unsigned(0, fcs_bit_ctr'length);
+			elsif (incr_FBC and FBC_clk_en) = '1' then
+				fcs_bit_ctr <= fcs_bit_ctr + to_unsigned(1, fcs_bit_ctr'length);
+			end if;
+		end if;
+	end process;
 
 	-- (FBC_eq_fcs_length)
 	-- comparator for FCS bit counter maximum count
 	-- when fcs_bit_ctr equals the fcs_length, set this signal to '1', else '0'
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	process(fcs_bit_ctr) begin
+		if fcs_bit_ctr = fcs_length then
+			FBC_eq_fcs_length <= '1';
+		else
+			FBC_eq_fcs_length <= '0';
+		end if;
+	end process;
 
 	-- (error_out)
 	-- generate error_out signal
@@ -273,23 +291,109 @@ begin
 	process (clk)
 		variable OR_C_reg : std_logic ;  -- optional
 	begin
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+		if rising_edge(clk) then
+			if enable_error = '0' or rst='1' then
+				error_out <= '0';
+			elsif FBC_eq_fcs_length = '1' and (unsigned(C_Reg) /= to_unsigned(0, C_Reg'length)) then
+				error_out <= '1';
+			else
+				error_out <= '0';
+			end if;
+		end if;
 	end process ;
 	
 	--------------------------
 	-- CRC CONTROLLER (FSM) --
 	--------------------------
 	-- State Register
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				state <= Init;
+			else
+				state <= next_state;
+			end if;
+		end if;
+	end process;
 
 	-- Next State and Output decode logic
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	process(state, mode, frame_in_d1, FBC_eq_fcs_length) begin
+		clr_Creg <= '0';
+		shift_Creg <= '0';
+		frame_out <= '0';
+		enable_error <= '0';
+		reset_FBC <= '0';
+		incr_FBC <= '0';
+		case state is
+			when Init=>
+				clr_Creg <= '1';
+				if mode='1' then
+					next_state <= Gen;
+				else
+					next_state <= Det;
+				end if;
+		
+			when Gen=>
+				if frame_in_d1 = '1' then
+					next_state <= Gen_Calc;
+				else
+					next_state <= Gen;
+				end if;
+			
+			when Gen_Calc=>
+				shift_Creg <= '1';
+				reset_FBC <= '1';
+				frame_out <= '1';
+				
+				if frame_in_d1 = '1' then
+					next_state <= Gen_Calc;
+				else
+					next_state <= Shift_CRC;
+				end if;
+			
+			when Shift_CRC=>
+				shift_Creg <= '1';
+				incr_FBC <= '1';
+				
+				if FBC_eq_fcs_length = '1' then
+					next_state <= Init;
+				else
+					next_state <= Shift_CRC;
+				end if;
+			
+			when Det=>
+				if frame_in_d1 = '0' then
+					next_state <= Det;
+				elsif mode = '1' then
+					next_state <= Gen;
+				else
+					next_state <= Det_Calc;
+				end if;
+			
+			when Det_Calc=>
+				shift_Creg <= '1';
+				
+				if frame_in_d1 = '1' then
+					next_state <= Det_Calc;
+				else
+					next_state <= Check_Remainder;
+				end if;
+			
+			when Check_Remainder=>
+				enable_error <= '1';
+				next_state <= Report_Error;
+			
+			when Report_Error=>
+				enable_error <= '1';			
+				if frame_in_d1 = '1' then
+					next_state <= Det_Calc;
+				elsif mode = '0' then
+					next_state <= Report_Error;
+				else
+					next_state <= Gen;
+				end if;
+		end case;
+	end process;
 
 	
 end Behavioral;
