@@ -41,12 +41,12 @@ architecture Behavioral of ManchEncDec is
 	-- baudDivide = (CLK Freq/(BAUDx32)) - 1 
 	
 	-- baudDivide constant for simulation with Test_med.vhd test bench
-	constant baudDivide : unsigned(8 downto 0) := "000000000"; 
+	--constant baudDivide : unsigned(8 downto 0) := "000000000"; 
 
 	-- baudDivide constant for simulation with Test_dualUART.vhd and
 	-- for programming the FPGA board
 	-- Papilio One FPGA Board --															
-	--constant baudDivide : unsigned(8 downto 0) := "001100111"; 	
+	constant baudDivide : unsigned(8 downto 0) := "001100111"; 	
 					-- For a baud rate of 9600, and a CLK frequency = 32 MHz,
 					-- baudDivide = (32MHz/(9600x32)) - 1 = 103
 	-- Basys2 FPGA Board --																

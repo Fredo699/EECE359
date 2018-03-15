@@ -124,8 +124,8 @@ begin
 	process (clk)
 	begin
 		if rising_edge(clk) then
-			data_in_d1 <= data_in ;
 			data_in_d2 <= data_in_d1 ;
+			data_in_d1 <= data_in ;
 		end if ;		
 	end process ;
 
@@ -135,8 +135,8 @@ begin
 	process (clk)
 	begin
 		if rising_edge(clk) then
-			dclk_in_d1 <= dclk_in ;
 			dclk_in_d2 <= dclk_in_d1 ;
+			dclk_in_d1 <= dclk_in ;
 		else
 			dclk_in_d1 <= dclk_in_d1 ;
 			dclk_in_d2 <= dclk_in_d2 ;
@@ -187,7 +187,7 @@ begin
 	-- use combinational logic only
 	-- result should be a logic function of data_in_d1 and MSB of C_reg 
 	-- use frame_in_d1 to hold the signal to zero outside of the data frame
-	C_reg_in <= C_Reg and data_in_d1;
+	C_reg_in <= (data_in_d1 xor C_Reg(fcs_length-1)) and frame_in_d1;
 
 	-- (C_reg)
 	-- Multi-function register for the C_reg
@@ -202,9 +202,21 @@ begin
 	-- 	to handle each subsequent bit of the C_Reg.  Use P, the predetermined  
 	-- 	divisor, to establish which C_reg bits are to include an XOR of 
 	--		C_reg_in with the previous C_reg bit
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	process(clk) begin
+		if rising_edge(clk) then
+			if clr_CReg = '1' then
+				C_Reg <= (others=>'0');
+			elsif shift_Creg and shift_enable then
+				for I in fcs_length-1 downto 1 loop
+					if P(I) = '1' then
+						C_Reg(I) <= C_Reg(I - 1) xor (C_reg_in);
+					else
+						C_Reg(I) <= C_Reg(I - 1);
+					end if;
+				end loop;
+			end if;
+		end if;
+	end process;
 
 	-- (C_reg_out)
 	-- process for creating a C_reg_out register
@@ -214,9 +226,13 @@ begin
 	--		by the FCS
 	-- therefore, need to synchronize the C_reg output to the falling
 	--		edge of the dclk (use the C_reg_out_enable signal)
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	process(clk) begin
+		if rising_edge(clk) then
+			if C_reg_out_enable = '1' then 
+				C_reg_out <= C_Reg(fcs_length-1);
+			end if;
+		end if;
+	end process;
 
 	-- (data_out_MUX)
 	-- data output mux
@@ -224,9 +240,7 @@ begin
 	--    then selects the C_reg_out register while the CRC is being shifted out 
 	--    and '0' when there is no data to be output
 	-- the timing of data_in is selected to match the delay produced by C_reg_out
-	------------------------------------------------------------------
-	--#####                 ENTER YOUR CODE HERE                 #####
-	------------------------------------------------------------------
+	
 
 	-- (data_out)
 	-- data output is the output of the data_out_MUX
