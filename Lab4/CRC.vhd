@@ -240,13 +240,13 @@ begin
     --    then selects the C_reg_out register while the CRC is being shifted out 
     --    and '0' when there is no data to be output
     -- the timing of data_in is selected to match the delay produced by C_reg_out
-    process(frame_in, shift_Creg, data_in_d2, C_reg_out) begin
-        if frame_in = '1' then
-            data_out_MUX <= data_in_d2;
-        elsif shift_Creg = '1' then
-            data_out_MUX <= C_reg_out;
-        else
-            data_out_MUX <= '0';
+    process(DO_MUX_sel, data_in_d2, C_reg_out) begin
+		  if DO_MUX_sel = "01" then
+				data_out_MUX <= data_in_d2;
+		  elsif DO_MUX_sel = "10" then
+				data_out_MUX <= C_reg_out;
+		  else
+				data_out_MUX <= '0';
         end if;
     end process;
 
@@ -292,12 +292,14 @@ begin
         variable OR_C_reg : std_logic ;  -- optional
     begin
         if rising_edge(clk) then
-            if enable_error = '0' or rst='1' then
+            if enable_error = '0' then
                 error_out <= '0';
-            elsif FBC_eq_fcs_length = '1' and (unsigned(C_Reg) /= to_unsigned(0, C_Reg'length)) then
-                error_out <= '1';
-            else
-                error_out <= '0';
+            elsif check_error = '1' then
+                if (unsigned(C_Reg) /= to_unsigned(0, unsigned(C_Reg)'length)) then
+						error_out <= '1';
+					 else 
+						error_out <= '0';
+					 end if;
             end if;
         end if;
     end process ;
@@ -320,10 +322,12 @@ begin
     process(state, mode, frame_in_d1, FBC_eq_fcs_length) begin
         clr_Creg <= '0';
         shift_Creg <= '0';
+		  check_error <= '0';
         frame_out <= '0';
         enable_error <= '0';
         reset_FBC <= '0';
         incr_FBC <= '0';
+		  DO_MUX_sel <= "00";
         case state is
             when Init=>
                 clr_Creg <= '1';
@@ -334,13 +338,16 @@ begin
                 end if;
         
             when Gen=>
-                if frame_in_d1 = '1' then
+					 if mode = '0' then
+						next_state <= Det;
+                elsif frame_in_d1 = '1' then
                     next_state <= Gen_Calc;
                 else
                     next_state <= Gen;
                 end if;
             
             when Gen_Calc=>
+					 DO_MUX_sel <= "01";
                 shift_Creg <= '1';
                 reset_FBC <= '1';
                 frame_out <= '1';
@@ -352,6 +359,7 @@ begin
                 end if;
             
             when Shift_CRC=>
+					 DO_MUX_sel <= "10";
                 shift_Creg <= '1';
                 incr_FBC <= '1';
 
@@ -382,7 +390,9 @@ begin
                 end if;
             
             when Check_Remainder=>
-                enable_error <= '1';
+					 check_error <= '1';
+					 enable_error <= '1';
+					 clr_Creg <= '1';
                 next_state <= Report_Error;
             
             when Report_Error=>

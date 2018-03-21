@@ -217,7 +217,7 @@ BEGIN
       wait for dclk_period*3;
 		wait until dclk_in = '1' and dclk_in'event;
 		assert error_out = '0' 
-		report "Detected an error when there should not have been an error" 
+		report "Detected an error when there should not have been an error e1" 
 					severity ERROR;
 		
 		-- CHECK DATA WITH FCS FOR ERRORS - SINGLE BIT ERROR
@@ -255,7 +255,7 @@ BEGIN
       wait for dclk_period*3;
 		wait until dclk_in = '1' and dclk_in'event;
 		assert error_out = '0' 
-		report "Detected an error when there should not have been an error" 
+		report "Detected an error when there should not have been an error e2" 
 					severity ERROR;
 		
 		-- CHECK DATA WITH FCS FOR ERRORS - UNDETECTABLE BURST ERROR PATTERN
