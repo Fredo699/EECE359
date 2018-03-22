@@ -26,8 +26,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RandBitGen is
 	 Generic (size : integer := 4);							-- length of LFSR
-    Port ( P : in STD_LOGIC_VECTOR(size downto 1);    -- Primitive Polynomial
-			  seed : in STD_LOGIC_VECTOR(size downto 1);	-- Seed Value
+    Port ( P : in STD_LOGIC_VECTOR(size downto 1) := "1100";    -- Primitive Polynomial
+			  seed : in STD_LOGIC_VECTOR(size downto 1) := "1000";	-- Seed Value
 			  frame_in : in STD_LOGIC; 						-- Frame Input
 			  dclk_in : in STD_LOGIC; 							-- Input Data Clock
 			  data_out : out  STD_LOGIC; 						-- Data Output
@@ -43,14 +43,12 @@ architecture Behavioral of RandBitGen is
 	signal dclk_in_d1 : std_logic; -- dclk_in delayed one system clk
 	signal dclk_in_d2 : std_logic; -- dclk_in delayed two system clks
 	signal frame_in_d1 : std_logic; -- frame_in delayed one system clk
-	signal frame_in_d2 : std_logic; -- frame_in delayed two system clks
-
 	signal dclk_fall : std_logic; -- falling edge of dclk_in
 	
 	-- define shift register used for the random bit generator
 	-- the generic "size" specifies the length of the shift register
-	signal shift_reg_F : std_logic_vector (size downto 1); -- Fibonacci LFSR
-	signal shift_reg_G : std_logic_vector (size downto 1); -- Galois LFSR
+	signal shift_reg_F : std_logic_vector (size downto 1) := seed; -- Fibonacci LFSR
+	signal shift_reg_G : std_logic_vector (size downto 1) := seed; -- Galois LFSR
 
 	-- shift counter used for test (will be optimized out by synthesis)
 	signal shift_ctr : unsigned(size downto 0):= (others => '0');	
@@ -79,7 +77,6 @@ begin
 	begin
 		if rising_edge(clk) then
 			frame_in_d1 <= frame_in;
-			frame_in_d2 <= frame_in_d1;
 		end if;	
 	end process;
 
@@ -106,6 +103,7 @@ begin
 			if rst = '1' then
 				shift_reg_F <= seed;
 			elsif dclk_fall = '1' and frame_in = '1' then
+				lsb_in := '0';
 				for I in size downto 1 loop
 					lsb_in := lsb_in xor (shift_reg_F(I) and P(I));
 				end loop;
@@ -114,7 +112,6 @@ begin
 					shift_reg_F(I) <= shift_reg_F(I - 1);
 				end loop;
 				shift_reg_F(1) <= lsb_in;
-				lsb_in := '0';
 			else
 				shift_reg_F <= shift_reg_F;
 			end if;
