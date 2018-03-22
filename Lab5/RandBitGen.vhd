@@ -26,8 +26,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RandBitGen is
 	 Generic (size : integer := 4);							-- length of LFSR
-    Port ( P : in STD_LOGIC_VECTOR(size downto 1) := "1100";    -- Primitive Polynomial
-			  seed : in STD_LOGIC_VECTOR(size downto 1) := "1000";	-- Seed Value
+    Port ( P : in STD_LOGIC_VECTOR(size downto 1);    -- Primitive Polynomial
+			  seed : in STD_LOGIC_VECTOR(size downto 1);	-- Seed Value
 			  frame_in : in STD_LOGIC; 						-- Frame Input
 			  dclk_in : in STD_LOGIC; 							-- Input Data Clock
 			  data_out : out  STD_LOGIC; 						-- Data Output
