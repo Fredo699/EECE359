@@ -1,8 +1,0 @@
-vhdl work "Local_Functions.vhd"
-vhdl work "Data_Buffer.vhd"
-vhdl work "CRC.vhd"
-vhdl work "real_debounce(2).vhd"
-vhdl work "MAC_Frame_Gen.vhd"
-vhdl work "LLC_PDU_Gen.vhd"
-vhdl work "Lab7B_top_level.vhd"
-vhdl work "Test_Lab7B.vhd"

@@ -32,8 +32,16 @@ begin
 -- Generate Manchester data signal from nrz_in and dclk_in
 -- Output a zero level when frame_in is inactive
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				manout <= '0';
+			elsif frame_in = '0' then
+				manout<= nrz_in;
+			else
+				manout <= nrz_in xor dclk_in;
+			end if;
+		end if;
+	end process;
 
 end behavioral;

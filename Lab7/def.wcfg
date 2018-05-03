@@ -3,522 +3,822 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/fred/git/EECE359/Lab7/Test_Lab7B_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/fred/git/EECE359/Lab7/Test_Lab7D_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="local_functions" />
             <top_module name="numeric_std" />
             <top_module name="std_logic_1164" />
-            <top_module name="test_lab7b" />
+            <top_module name="test_lab7d" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="4" />
-   <wvobject fp_name="group46" type="group">
+   <WVObjectSize size="8" />
+   <wvobject fp_name="group11" type="group">
       <obj_property name="label">testbench</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/test_lab7b/mclk" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">mclk</obj_property>
-         <obj_property name="ObjectShortName">mclk</obj_property>
+      <wvobject fp_name="/test_lab7d/manin" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin</obj_property>
+         <obj_property name="ObjectShortName">manin</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/sw" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">sw[7:4]</obj_property>
-         <obj_property name="ObjectShortName">sw[7:4]</obj_property>
+      <wvobject fp_name="/test_lab7d/sw" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sw[7:0]</obj_property>
+         <obj_property name="ObjectShortName">sw[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/btn" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/btn" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">btn[1:0]</obj_property>
          <obj_property name="ObjectShortName">btn[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/dclk_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_out</obj_property>
-         <obj_property name="ObjectShortName">dclk_out</obj_property>
+      <wvobject fp_name="/test_lab7d/mclk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mclk</obj_property>
+         <obj_property name="ObjectShortName">mclk</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/data_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_out</obj_property>
-         <obj_property name="ObjectShortName">data_out</obj_property>
+      <wvobject fp_name="/test_lab7d/manout" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manout</obj_property>
+         <obj_property name="ObjectShortName">manout</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/frame_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out</obj_property>
-         <obj_property name="ObjectShortName">frame_out</obj_property>
+      <wvobject fp_name="/test_lab7d/led" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">led[7:0]</obj_property>
+         <obj_property name="ObjectShortName">led[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/frame_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out</obj_property>
-         <obj_property name="ObjectShortName">frame_out</obj_property>
+      <wvobject fp_name="/test_lab7d/last_llc_data_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">last_llc_data_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">last_llc_data_reg[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/mclk_period" type="other" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/last_mfd_data_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">last_mfd_data_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">last_mfd_data_reg[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/mfd_crc_error_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mfd_crc_error_out</obj_property>
+         <obj_property name="ObjectShortName">mfd_crc_error_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/mclk_period" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">mclk_period</obj_property>
          <obj_property name="ObjectShortName">mclk_period</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/txdata_period" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">txdata_period</obj_property>
-         <obj_property name="ObjectShortName">txdata_period</obj_property>
-      </wvobject>
    </wvobject>
-   <wvobject fp_name="group84" type="group">
-      <obj_property name="label">crc</obj_property>
+   <wvobject fp_name="group204" type="group">
+      <obj_property name="label">toplevel</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/p" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">p[8:0]</obj_property>
-         <obj_property name="ObjectShortName">p[8:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/data_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_in</obj_property>
-         <obj_property name="ObjectShortName">data_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/dclk_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_in</obj_property>
-         <obj_property name="ObjectShortName">dclk_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/frame_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_in</obj_property>
-         <obj_property name="ObjectShortName">frame_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/data_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_out</obj_property>
-         <obj_property name="ObjectShortName">data_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/dclk_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_out</obj_property>
-         <obj_property name="ObjectShortName">dclk_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/frame_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out</obj_property>
-         <obj_property name="ObjectShortName">frame_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/error_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">error_out</obj_property>
-         <obj_property name="ObjectShortName">error_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/mode" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">mode</obj_property>
-         <obj_property name="ObjectShortName">mode</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/clk" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/rst" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">rst</obj_property>
-         <obj_property name="ObjectShortName">rst</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/dclk_in_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_in_d1</obj_property>
-         <obj_property name="ObjectShortName">dclk_in_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/dclk_in_d2" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_in_d2</obj_property>
-         <obj_property name="ObjectShortName">dclk_in_d2</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/data_in_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_in_d1</obj_property>
-         <obj_property name="ObjectShortName">data_in_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/data_in_d2" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_in_d2</obj_property>
-         <obj_property name="ObjectShortName">data_in_d2</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/frame_in_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_in_d1</obj_property>
-         <obj_property name="ObjectShortName">frame_in_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/c_reg" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">c_reg[7:0]</obj_property>
-         <obj_property name="ObjectShortName">c_reg[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/c_reg_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">c_reg_in</obj_property>
-         <obj_property name="ObjectShortName">c_reg_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/shift_enable" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">shift_enable</obj_property>
-         <obj_property name="ObjectShortName">shift_enable</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/c_reg_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">c_reg_out</obj_property>
-         <obj_property name="ObjectShortName">c_reg_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/c_reg_out_enable" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">c_reg_out_enable</obj_property>
-         <obj_property name="ObjectShortName">c_reg_out_enable</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/data_out_mux" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_out_mux</obj_property>
-         <obj_property name="ObjectShortName">data_out_mux</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/reset_fbc" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">reset_fbc</obj_property>
-         <obj_property name="ObjectShortName">reset_fbc</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/incr_fbc" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">incr_fbc</obj_property>
-         <obj_property name="ObjectShortName">incr_fbc</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/clr_creg" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clr_creg</obj_property>
-         <obj_property name="ObjectShortName">clr_creg</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/shift_creg" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">shift_creg</obj_property>
-         <obj_property name="ObjectShortName">shift_creg</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/check_error" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">check_error</obj_property>
-         <obj_property name="ObjectShortName">check_error</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/enable_error" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">enable_error</obj_property>
-         <obj_property name="ObjectShortName">enable_error</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/fbc_eq_fcs_length" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">fbc_eq_fcs_length</obj_property>
-         <obj_property name="ObjectShortName">fbc_eq_fcs_length</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/do_mux_sel" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">do_mux_sel[1:0]</obj_property>
-         <obj_property name="ObjectShortName">do_mux_sel[1:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/state" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">state</obj_property>
-         <obj_property name="ObjectShortName">state</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/next_state" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">next_state</obj_property>
-         <obj_property name="ObjectShortName">next_state</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/fcs_bit_ctr" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">fcs_bit_ctr[5:0]</obj_property>
-         <obj_property name="ObjectShortName">fcs_bit_ctr[5:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/fbc_clk_en" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">fbc_clk_en</obj_property>
-         <obj_property name="ObjectShortName">fbc_clk_en</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/fcs_length" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">fcs_length</obj_property>
-         <obj_property name="ObjectShortName">fcs_length</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/mux_sel_data" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mux_sel_data[1:0]</obj_property>
-         <obj_property name="ObjectShortName">mux_sel_data[1:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/FCS_Gen/mux_sel_crc" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mux_sel_crc[1:0]</obj_property>
-         <obj_property name="ObjectShortName">mux_sel_crc[1:0]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group137" type="group">
-      <obj_property name="label">mac_frame_gen</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/rst" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">rst</obj_property>
-         <obj_property name="ObjectShortName">rst</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/clk" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/data_in" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">data_in[7:0]</obj_property>
-         <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/data_ready" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_ready</obj_property>
-         <obj_property name="ObjectShortName">data_ready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/data_ack" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_ack</obj_property>
-         <obj_property name="ObjectShortName">data_ack</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/pdu_length" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">pdu_length[7:0]</obj_property>
-         <obj_property name="ObjectShortName">pdu_length[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/source_addr" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">source_addr[7:0]</obj_property>
-         <obj_property name="ObjectShortName">source_addr[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/dest_addr" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">dest_addr[7:0]</obj_property>
-         <obj_property name="ObjectShortName">dest_addr[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/dclk_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_out</obj_property>
-         <obj_property name="ObjectShortName">dclk_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/data_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_out</obj_property>
-         <obj_property name="ObjectShortName">data_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/frame_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out</obj_property>
-         <obj_property name="ObjectShortName">frame_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/clkdiv" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">clkdiv[4:0]</obj_property>
-         <obj_property name="ObjectShortName">clkdiv[4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/clkdiv4_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clkdiv4_d1</obj_property>
-         <obj_property name="ObjectShortName">clkdiv4_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/clkdiv4_d2" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clkdiv4_d2</obj_property>
-         <obj_property name="ObjectShortName">clkdiv4_d2</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/clkdiv4_d3" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clkdiv4_d3</obj_property>
-         <obj_property name="ObjectShortName">clkdiv4_d3</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/dclk_rise" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_rise</obj_property>
-         <obj_property name="ObjectShortName">dclk_rise</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/dclk_rise_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_rise_d1</obj_property>
-         <obj_property name="ObjectShortName">dclk_rise_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/dclk_fall" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">dclk_fall</obj_property>
-         <obj_property name="ObjectShortName">dclk_fall</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/mac_packet_sr" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mac_packet_sr[7:0]</obj_property>
-         <obj_property name="ObjectShortName">mac_packet_sr[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/packet_sr_data" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">packet_sr_data[7:0]</obj_property>
-         <obj_property name="ObjectShortName">packet_sr_data[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/shift_count" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">shift_count[2:0]</obj_property>
-         <obj_property name="ObjectShortName">shift_count[2:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/byte_count" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">byte_count[5:0]</obj_property>
-         <obj_property name="ObjectShortName">byte_count[5:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/data_ack_i" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">data_ack_i</obj_property>
-         <obj_property name="ObjectShortName">data_ack_i</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/load_packet_sr" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">load_packet_sr</obj_property>
-         <obj_property name="ObjectShortName">load_packet_sr</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_data_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_data_in</obj_property>
-         <obj_property name="ObjectShortName">crc_data_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_data_in_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_data_in_d1</obj_property>
-         <obj_property name="ObjectShortName">crc_data_in_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_data_in_d2" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_data_in_d2</obj_property>
-         <obj_property name="ObjectShortName">crc_data_in_d2</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_frame_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_frame_in</obj_property>
-         <obj_property name="ObjectShortName">crc_frame_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_data_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_data_out</obj_property>
-         <obj_property name="ObjectShortName">crc_data_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_dclk_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_dclk_out</obj_property>
-         <obj_property name="ObjectShortName">crc_dclk_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_dclk_in" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_dclk_in</obj_property>
-         <obj_property name="ObjectShortName">crc_dclk_in</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/crc_frame_out" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">crc_frame_out</obj_property>
-         <obj_property name="ObjectShortName">crc_frame_out</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/frame_out_i_d1" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out_i_d1</obj_property>
-         <obj_property name="ObjectShortName">frame_out_i_d1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/frame_out_i_d2" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out_i_d2</obj_property>
-         <obj_property name="ObjectShortName">frame_out_i_d2</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/frame_out_i_d3" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out_i_d3</obj_property>
-         <obj_property name="ObjectShortName">frame_out_i_d3</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/state" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">state</obj_property>
-         <obj_property name="ObjectShortName">state</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/next_state" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">next_state</obj_property>
-         <obj_property name="ObjectShortName">next_state</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/en_shift_ctr" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">en_shift_ctr</obj_property>
-         <obj_property name="ObjectShortName">en_shift_ctr</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/en_byte_ctr" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">en_byte_ctr</obj_property>
-         <obj_property name="ObjectShortName">en_byte_ctr</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/frame_out_i" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">frame_out_i</obj_property>
-         <obj_property name="ObjectShortName">frame_out_i</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sel_preamble" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel_preamble</obj_property>
-         <obj_property name="ObjectShortName">sel_preamble</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sel_sfd" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel_sfd</obj_property>
-         <obj_property name="ObjectShortName">sel_sfd</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sel_dest_addr" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel_dest_addr</obj_property>
-         <obj_property name="ObjectShortName">sel_dest_addr</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sel_source_addr" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel_source_addr</obj_property>
-         <obj_property name="ObjectShortName">sel_source_addr</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sel_length" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel_length</obj_property>
-         <obj_property name="ObjectShortName">sel_length</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sel_pdu_data" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">sel_pdu_data</obj_property>
-         <obj_property name="ObjectShortName">sel_pdu_data</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/enable_crc" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">enable_crc</obj_property>
-         <obj_property name="ObjectShortName">enable_crc</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/preamble" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">preamble[7:0]</obj_property>
-         <obj_property name="ObjectShortName">preamble[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/sfd" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">sfd[7:0]</obj_property>
-         <obj_property name="ObjectShortName">sfd[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/fcs_length" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">fcs_length</obj_property>
-         <obj_property name="ObjectShortName">fcs_length</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/MAC_Frame_GenA/p" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">p[8:0]</obj_property>
-         <obj_property name="ObjectShortName">p[8:0]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group236" type="group">
-      <obj_property name="label">llc_pdu_gen</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/rst" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">rst</obj_property>
-         <obj_property name="ObjectShortName">rst</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/clk" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/gen_pdu" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/manout" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manout</obj_property>
+         <obj_property name="ObjectShortName">manout</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/manin" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin</obj_property>
+         <obj_property name="ObjectShortName">manin</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/sw" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sw[7:0]</obj_property>
+         <obj_property name="ObjectShortName">sw[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/btn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">btn[1:0]</obj_property>
+         <obj_property name="ObjectShortName">btn[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/led" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">led[7:0]</obj_property>
+         <obj_property name="ObjectShortName">led[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/last_llc_data_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">last_llc_data_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">last_llc_data_reg[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/last_mfd_data_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">last_mfd_data_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">last_mfd_data_reg[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/mfd_crc_error_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mfd_crc_error_out</obj_property>
+         <obj_property name="ObjectShortName">mfd_crc_error_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/mclk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mclk</obj_property>
+         <obj_property name="ObjectShortName">mclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/drst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">drst</obj_property>
+         <obj_property name="ObjectShortName">drst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/gen_pdu" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">gen_pdu</obj_property>
          <obj_property name="ObjectShortName">gen_pdu</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/data_out" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/llc_pdu_rdy" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">llc_pdu_rdy</obj_property>
+         <obj_property name="ObjectShortName">llc_pdu_rdy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/llc_pdu_ack" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">llc_pdu_ack</obj_property>
+         <obj_property name="ObjectShortName">llc_pdu_ack</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/llc_pdu_length" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">llc_pdu_length[7:0]</obj_property>
+         <obj_property name="ObjectShortName">llc_pdu_length[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/llc_pdu_data" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">llc_pdu_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">llc_pdu_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/mac_dest_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mac_dest_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">mac_dest_addr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/rx_mac_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">rx_mac_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rx_mac_addr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/dest_mac_addr_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dest_mac_addr_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dest_mac_addr_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/tx_dclk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">tx_dclk</obj_property>
+         <obj_property name="ObjectShortName">tx_dclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/tx_data" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">tx_data</obj_property>
+         <obj_property name="ObjectShortName">tx_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/tx_frame" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">tx_frame</obj_property>
+         <obj_property name="ObjectShortName">tx_frame</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/rx_dclk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rx_dclk</obj_property>
+         <obj_property name="ObjectShortName">rx_dclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/rx_data" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rx_data</obj_property>
+         <obj_property name="ObjectShortName">rx_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/rx_frame" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rx_frame</obj_property>
+         <obj_property name="ObjectShortName">rx_frame</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/mfd_dclk_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mfd_dclk_out</obj_property>
+         <obj_property name="ObjectShortName">mfd_dclk_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/mfd_data_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mfd_data_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">mfd_data_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/debouncedelay" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">debouncedelay</obj_property>
+         <obj_property name="ObjectShortName">debouncedelay</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/llc_pdu_length_size" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">llc_pdu_length_size</obj_property>
+         <obj_property name="ObjectShortName">llc_pdu_length_size</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/llc_pdu_data_size" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">llc_pdu_data_size</obj_property>
+         <obj_property name="ObjectShortName">llc_pdu_data_size</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group38" type="group">
+      <obj_property name="label">LLC_PDU_GEN</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/gen_pdu" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gen_pdu</obj_property>
+         <obj_property name="ObjectShortName">gen_pdu</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/data_out" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">data_out[7:0]</obj_property>
          <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/data_ready" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/data_ready" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">data_ready</obj_property>
          <obj_property name="ObjectShortName">data_ready</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/data_ack" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/data_ack" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">data_ack</obj_property>
          <obj_property name="ObjectShortName">data_ack</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/pdu_length" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/pdu_length" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">pdu_length[7:0]</obj_property>
          <obj_property name="ObjectShortName">pdu_length[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/buffer_data_in" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/buffer_data_in" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">buffer_data_in[7:0]</obj_property>
          <obj_property name="ObjectShortName">buffer_data_in[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/buffer_data_out" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/buffer_data_out" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">buffer_data_out[7:0]</obj_property>
          <obj_property name="ObjectShortName">buffer_data_out[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/buffer_addr" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/buffer_addr" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">buffer_addr[4:0]</obj_property>
          <obj_property name="ObjectShortName">buffer_addr[4:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/pdu_length_reg" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/pdu_length_reg" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">pdu_length_reg[7:0]</obj_property>
          <obj_property name="ObjectShortName">pdu_length_reg[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/shift_reg" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/shift_reg" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">shift_reg[7:0]</obj_property>
          <obj_property name="ObjectShortName">shift_reg[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/state" type="other" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/state" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">state</obj_property>
          <obj_property name="ObjectShortName">state</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/next_state" type="other" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/next_state" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">next_state</obj_property>
          <obj_property name="ObjectShortName">next_state</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/rst_addr" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/rst_addr" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">rst_addr</obj_property>
          <obj_property name="ObjectShortName">rst_addr</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/increment_addr" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/increment_addr" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">increment_addr</obj_property>
          <obj_property name="ObjectShortName">increment_addr</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/load_data_reg" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/load_data_reg" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">load_data_reg</obj_property>
          <obj_property name="ObjectShortName">load_data_reg</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/buffer_we" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/buffer_we" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">buffer_we</obj_property>
          <obj_property name="ObjectShortName">buffer_we</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/buffer_wclk" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/buffer_wclk" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">buffer_wclk</obj_property>
          <obj_property name="ObjectShortName">buffer_wclk</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/load_pdu_length" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/load_pdu_length" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">load_pdu_length</obj_property>
          <obj_property name="ObjectShortName">load_pdu_length</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/buffer_out_ready" type="logic" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/buffer_out_ready" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">buffer_out_ready</obj_property>
          <obj_property name="ObjectShortName">buffer_out_ready</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/data_size" type="other" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/data_size" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">data_size</obj_property>
          <obj_property name="ObjectShortName">data_size</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/addr_size" type="other" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/addr_size" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">addr_size</obj_property>
          <obj_property name="ObjectShortName">addr_size</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/max_addr" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/max_addr" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">max_addr[4:0]</obj_property>
          <obj_property name="ObjectShortName">max_addr[4:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/seed" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/seed" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">seed[7:0]</obj_property>
          <obj_property name="ObjectShortName">seed[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/test_lab7b/uut/LLC_PDU_GenA/p" type="array" db_ref_id="1">
+      <wvobject fp_name="/test_lab7d/uut/LLC_PDU_GenA/p" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">p[7:0]</obj_property>
          <obj_property name="ObjectShortName">p[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group91" type="group">
+      <obj_property name="label">MAC_Frame_Gen</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_ready" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_ready</obj_property>
+         <obj_property name="ObjectShortName">data_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_ack" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_ack</obj_property>
+         <obj_property name="ObjectShortName">data_ack</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/pdu_length" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pdu_length[7:0]</obj_property>
+         <obj_property name="ObjectShortName">pdu_length[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/source_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">source_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">source_addr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/dest_addr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dest_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dest_addr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/dclk_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_out</obj_property>
+         <obj_property name="ObjectShortName">dclk_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out</obj_property>
+         <obj_property name="ObjectShortName">data_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/frame_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out</obj_property>
+         <obj_property name="ObjectShortName">frame_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/clkdiv" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv[4:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/clkdiv4_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv4_d1</obj_property>
+         <obj_property name="ObjectShortName">clkdiv4_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/clkdiv4_d2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv4_d2</obj_property>
+         <obj_property name="ObjectShortName">clkdiv4_d2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/clkdiv4_d3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv4_d3</obj_property>
+         <obj_property name="ObjectShortName">clkdiv4_d3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/dclk_rise" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_rise</obj_property>
+         <obj_property name="ObjectShortName">dclk_rise</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/dclk_rise_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_rise_d1</obj_property>
+         <obj_property name="ObjectShortName">dclk_rise_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/dclk_rise_d2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_rise_d2</obj_property>
+         <obj_property name="ObjectShortName">dclk_rise_d2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/mac_packet_sr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mac_packet_sr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">mac_packet_sr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/packet_sr_data" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">packet_sr_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">packet_sr_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/shift_count" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">shift_count[2:0]</obj_property>
+         <obj_property name="ObjectShortName">shift_count[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/byte_count" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">byte_count[5:0]</obj_property>
+         <obj_property name="ObjectShortName">byte_count[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_ack_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_ack_i</obj_property>
+         <obj_property name="ObjectShortName">data_ack_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/load_packet_sr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">load_packet_sr</obj_property>
+         <obj_property name="ObjectShortName">load_packet_sr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_data_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_data_in</obj_property>
+         <obj_property name="ObjectShortName">crc_data_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_data_in_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_data_in_d1</obj_property>
+         <obj_property name="ObjectShortName">crc_data_in_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_data_in_d2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_data_in_d2</obj_property>
+         <obj_property name="ObjectShortName">crc_data_in_d2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_frame_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_frame_in</obj_property>
+         <obj_property name="ObjectShortName">crc_frame_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_data_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_data_out</obj_property>
+         <obj_property name="ObjectShortName">crc_data_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_dclk_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_dclk_out</obj_property>
+         <obj_property name="ObjectShortName">crc_dclk_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_dclk_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_dclk_in</obj_property>
+         <obj_property name="ObjectShortName">crc_dclk_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/crc_frame_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_frame_out</obj_property>
+         <obj_property name="ObjectShortName">crc_frame_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/frame_out_i_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out_i_d1</obj_property>
+         <obj_property name="ObjectShortName">frame_out_i_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/frame_out_i_d2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out_i_d2</obj_property>
+         <obj_property name="ObjectShortName">frame_out_i_d2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/frame_out_i_d3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out_i_d3</obj_property>
+         <obj_property name="ObjectShortName">frame_out_i_d3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/frame_out_i_d4" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out_i_d4</obj_property>
+         <obj_property name="ObjectShortName">frame_out_i_d4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/next_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">next_state</obj_property>
+         <obj_property name="ObjectShortName">next_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/en_shift_ctr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en_shift_ctr</obj_property>
+         <obj_property name="ObjectShortName">en_shift_ctr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/en_byte_ctr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en_byte_ctr</obj_property>
+         <obj_property name="ObjectShortName">en_byte_ctr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/frame_out_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out_i</obj_property>
+         <obj_property name="ObjectShortName">frame_out_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sel_preamble" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_preamble</obj_property>
+         <obj_property name="ObjectShortName">sel_preamble</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sel_sfd" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_sfd</obj_property>
+         <obj_property name="ObjectShortName">sel_sfd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sel_dest_addr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_dest_addr</obj_property>
+         <obj_property name="ObjectShortName">sel_dest_addr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sel_source_addr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_source_addr</obj_property>
+         <obj_property name="ObjectShortName">sel_source_addr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sel_length" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_length</obj_property>
+         <obj_property name="ObjectShortName">sel_length</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sel_pdu_data" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_pdu_data</obj_property>
+         <obj_property name="ObjectShortName">sel_pdu_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/enable_crc" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">enable_crc</obj_property>
+         <obj_property name="ObjectShortName">enable_crc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/preamble" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">preamble[7:0]</obj_property>
+         <obj_property name="ObjectShortName">preamble[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/sfd" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sfd[7:0]</obj_property>
+         <obj_property name="ObjectShortName">sfd[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/fcs_length" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">fcs_length</obj_property>
+         <obj_property name="ObjectShortName">fcs_length</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[8:0]</obj_property>
+         <obj_property name="ObjectShortName">p[8:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group98" type="group">
+      <obj_property name="label">manenc</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_lab7d/uut/EncoderA/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/EncoderA/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/EncoderA/nrz_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">nrz_in</obj_property>
+         <obj_property name="ObjectShortName">nrz_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/EncoderA/frame_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_in</obj_property>
+         <obj_property name="ObjectShortName">frame_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/EncoderA/dclk_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_in</obj_property>
+         <obj_property name="ObjectShortName">dclk_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/EncoderA/manout" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manout</obj_property>
+         <obj_property name="ObjectShortName">manout</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group127" type="group">
+      <obj_property name="label">mandec</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin</obj_property>
+         <obj_property name="ObjectShortName">manin</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/dclk_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_out</obj_property>
+         <obj_property name="ObjectShortName">dclk_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/frame_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out</obj_property>
+         <obj_property name="ObjectShortName">frame_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/nrz_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">nrz_out</obj_property>
+         <obj_property name="ObjectShortName">nrz_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clkdiv" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin_d1</obj_property>
+         <obj_property name="ObjectShortName">manin_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin_d2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin_d2</obj_property>
+         <obj_property name="ObjectShortName">manin_d2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin_rise" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin_rise</obj_property>
+         <obj_property name="ObjectShortName">manin_rise</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin_fall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin_fall</obj_property>
+         <obj_property name="ObjectShortName">manin_fall</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin_s14" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin_s14</obj_property>
+         <obj_property name="ObjectShortName">manin_s14</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/manin_s34" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">manin_s34</obj_property>
+         <obj_property name="ObjectShortName">manin_s34</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/sync_det" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sync_det</obj_property>
+         <obj_property name="ObjectShortName">sync_det</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/nrz_out_reg" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">nrz_out_reg</obj_property>
+         <obj_property name="ObjectShortName">nrz_out_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/frame_out_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_out_i</obj_property>
+         <obj_property name="ObjectShortName">frame_out_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clkdiv_max" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv_max[5:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv_max[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clkdiv_init" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv_init[5:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv_init[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clkdiv_sync" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv_sync[5:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv_sync[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clkdiv_14" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv_14[5:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv_14[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/clkdiv_34" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">clkdiv_34[5:0]</obj_property>
+         <obj_property name="ObjectShortName">clkdiv_34[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/sync_win_min" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sync_win_min[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sync_win_min[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/sync_win_max" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sync_win_max[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sync_win_max[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/sync_lost" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sync_lost[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sync_lost[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/decode_data_bit" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">decode_data_bit[5:0]</obj_property>
+         <obj_property name="ObjectShortName">decode_data_bit[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/gen_dclk_rise" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">gen_dclk_rise[5:0]</obj_property>
+         <obj_property name="ObjectShortName">gen_dclk_rise[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/gen_dclk_fall" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">gen_dclk_fall[5:0]</obj_property>
+         <obj_property name="ObjectShortName">gen_dclk_fall[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/DecoderB/gen_dclk_rise_last" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">gen_dclk_rise_last[5:0]</obj_property>
+         <obj_property name="ObjectShortName">gen_dclk_rise_last[5:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group166" type="group">
+      <obj_property name="label">MAC_Frame_Dec</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/rst" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rst</obj_property>
+         <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dclk_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_in</obj_property>
+         <obj_property name="ObjectShortName">dclk_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/data_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in</obj_property>
+         <obj_property name="ObjectShortName">data_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/frame_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">frame_in</obj_property>
+         <obj_property name="ObjectShortName">frame_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/mac_addr_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mac_addr_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">mac_addr_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dclk_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_out</obj_property>
+         <obj_property name="ObjectShortName">dclk_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/data_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dest_addr_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dest_addr_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dest_addr_out[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/crc_error_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_error_out</obj_property>
+         <obj_property name="ObjectShortName">crc_error_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dclk_in_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_in_d1</obj_property>
+         <obj_property name="ObjectShortName">dclk_in_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dclk_rise" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_rise</obj_property>
+         <obj_property name="ObjectShortName">dclk_rise</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dclk_fall" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dclk_fall</obj_property>
+         <obj_property name="ObjectShortName">dclk_fall</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/data_sr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_sr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_sr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/shift_count" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">shift_count[2:0]</obj_property>
+         <obj_property name="ObjectShortName">shift_count[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/byte_count" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">byte_count[5:0]</obj_property>
+         <obj_property name="ObjectShortName">byte_count[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/dest_addr_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dest_addr_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dest_addr_reg[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/source_addr_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">source_addr_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">source_addr_reg[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/pdu_length_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pdu_length_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">pdu_length_reg[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/pdu_data_reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pdu_data_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">pdu_data_reg[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/crc_dclk_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_dclk_in</obj_property>
+         <obj_property name="ObjectShortName">crc_dclk_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/crc_error" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_error</obj_property>
+         <obj_property name="ObjectShortName">crc_error</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/crc_error_d1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_error_d1</obj_property>
+         <obj_property name="ObjectShortName">crc_error_d1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/crc_error_reg" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_error_reg</obj_property>
+         <obj_property name="ObjectShortName">crc_error_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/next_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">next_state</obj_property>
+         <obj_property name="ObjectShortName">next_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/en_shift_ctr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en_shift_ctr</obj_property>
+         <obj_property name="ObjectShortName">en_shift_ctr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/en_byte_ctr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">en_byte_ctr</obj_property>
+         <obj_property name="ObjectShortName">en_byte_ctr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/load_dest_addr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">load_dest_addr</obj_property>
+         <obj_property name="ObjectShortName">load_dest_addr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/load_source_addr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">load_source_addr</obj_property>
+         <obj_property name="ObjectShortName">load_source_addr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/load_pdu_length" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">load_pdu_length</obj_property>
+         <obj_property name="ObjectShortName">load_pdu_length</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/load_pdu_data" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">load_pdu_data</obj_property>
+         <obj_property name="ObjectShortName">load_pdu_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/ignore_error" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ignore_error</obj_property>
+         <obj_property name="ObjectShortName">ignore_error</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/crc_frame_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">crc_frame_in</obj_property>
+         <obj_property name="ObjectShortName">crc_frame_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/sfd" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sfd[7:0]</obj_property>
+         <obj_property name="ObjectShortName">sfd[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/shift_max" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">shift_max[2:0]</obj_property>
+         <obj_property name="ObjectShortName">shift_max[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/fcs_length" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">fcs_length</obj_property>
+         <obj_property name="ObjectShortName">fcs_length</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[8:0]</obj_property>
+         <obj_property name="ObjectShortName">p[8:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group205" type="group">
+      <obj_property name="label">testvecs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out</obj_property>
+         <obj_property name="ObjectShortName">data_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/data_in" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in</obj_property>
+         <obj_property name="ObjectShortName">data_in</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_GenA/data_in" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_lab7d/uut/MAC_Frame_DecB/data_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

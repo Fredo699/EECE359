@@ -65,7 +65,7 @@ architecture Behavioral of LLC_PDU_Gen is
 	-- Signals for State Machine used to control the Data Buffer
 	-- declare state and next_state
 	type state_type is (st1_idle, st2_det_length, st3_load, stabilize, st4_write, st5_inc, st6_rst_addr, st7_notify, st8_inc, st9_check_done); 
-	signal state, next_state : state_type; 
+	signal state, next_state : state_type := st1_idle; 
 	-- declare state machine outputs
 	signal rst_addr  : std_logic;  -- reset address register 
 	signal increment_addr  : std_logic;  -- increment address register
@@ -243,7 +243,7 @@ begin
 				next_state <= st9_check_done;
 			
 			when st9_check_done=>
-				if buffer_addr < PDU_length_reg - to_unsigned(1, 8) then
+				if buffer_addr < PDU_length_reg then
 					next_state <= st7_notify;
 				else
 					next_state <= st1_idle;

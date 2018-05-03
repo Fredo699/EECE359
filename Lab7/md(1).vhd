@@ -85,8 +85,8 @@ architecture behavioral of manchdecoder is
 	signal manin_s14 : std_logic;  -- sample 1/4 data bit period into next data bit
 	signal manin_s34 : std_logic;  -- sample 3/4 data bit period into next data bit
 	signal sync_det : std_logic;   -- detect manchester data signal 
-	signal nrz_out_reg : std_logic;
-	signal frame_out_i : std_logic;
+	signal nrz_out_reg : std_logic := '0';
+	signal frame_out_i : std_logic := '0';
 
 begin
 
@@ -114,9 +114,19 @@ begin
 	--		within expected window (clkdiv between SYNC_WIN_MIN and SYNC_WIN_MAX)
 	-- loads with CLKDIV_INIT value when "clkdiv" reaches CLKDIV_MAX if sync is lost
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if manin_rise = '1' and sync_det = '0' then
+				clkdiv <= CLKDIV_SYNC;
+			elsif (manin_rise = '1' or manin_fall = '1')and(clkdiv <= SYNC_WIN_MAX and clkdiv >= SYNC_WIN_MIN) then
+				clkdiv <= CLKDIV_SYNC;
+			elsif clkdiv = CLKDIV_MAX then
+				clkdiv <= CLKDIV_INIT;
+			else
+				clkdiv <= clkdiv + to_unsigned(1, clkdiv'length);
+			end if;
+		end if;
+	end process;
 
 
 	-- (manin_s14)
@@ -124,9 +134,15 @@ begin
 	-- initalized to zero with reset
 	-- use manin delayed two clock cycles to keep timing aligned properly 
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				manin_s14 <= '0';
+			elsif clkdiv = CLKDIV_14 then
+				manin_s14 <= manin_d2;
+			end if;
+		end if;
+	end process;
 
 
 	-- (manin_s34)
@@ -134,9 +150,15 @@ begin
 	-- initalized to zero with reset
 	-- use manin delayed two clock cycles to keep timing aligned properly 
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				manin_s34 <= '1';
+			elsif clkdiv = CLKDIV_34 then
+				manin_s34 <= manin_d2;
+			end if;
+		end if;
+	end process;
 
 
 	-- (sync_det) 
@@ -146,9 +168,17 @@ begin
 	-- and stays active if manin_rise or manin_fall occur before
 	--    clkdiv reaches SYNC_LOST
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				sync_det <= '0';
+			elsif manin_rise = '1' then
+				sync_det <= '1';
+			elsif clkdiv = SYNC_LOST then	
+				sync_det <= '0';
+			end if;
+		end if;
+	end process;
 
 
 	-- (nrz_out_reg) 
@@ -157,9 +187,13 @@ begin
 	-- (nrz_out_reg = 0 if manin_s14 = 1 and manin_s34 = 0; 
 	--		nrz_out_reg = 1 if manin_s14 = 0 and manin_s34 = 1)
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if clkdiv = DECODE_DATA_BIT then
+				nrz_out_reg <= (manin_s34 and not manin_s14);
+			end if;
+		end if;
+	end process;
 
 
 	-- (frame_out_i)
@@ -171,9 +205,15 @@ begin
 	--    note the last term is required to extend frame_out_i 
 	--		to the end of the last bit period
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if sync_det = '1' and clkdiv = DECODE_DATA_BIT then
+				frame_out_i <= '1';
+			elsif sync_det = '0' and clkdiv = CLKDIV_MAX then
+				frame_out_i <= '0';
+			end if;
+		end if;
+	end process;
 
 
 	-- (dclk_out)
@@ -183,14 +223,20 @@ begin
 	-- "stretch" the clock so it has a 50% duty cycle 
 	--		(i.e. until clkdiv = GEN_DCLK_FALL)
 
-	--###########################################################--
-	--#####             INSERT YOUR CODE HERE               #####--
-	--###########################################################--
+	process(clk) begin
+		if rising_edge(clk) then
+			if clkdiv = GEN_DCLK_RISE or clkdiv = GEN_DCLK_RISE_LAST then
+				dclk_out <= '1';
+			elsif clkdiv = GEN_DCLK_FALL then
+				dclk_out <= '0';
+			end if;
+		end if;
+	end process;
 
 
 	-- (nrz_out, frame_out)
 	-- generate nrz_out and frame_out outputs
-	-- use frame_out_i to keep nrz_out at '0' outside of the fame
+	-- use frame_out_i to keep nrz_out at '0' outside of the frame
 	nrz_out <= nrz_out_reg and frame_out_i;
 	frame_out <= frame_out_i;
 

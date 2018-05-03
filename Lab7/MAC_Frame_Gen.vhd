@@ -105,6 +105,7 @@ architecture Behavioral of MAC_Frame_Gen is
 	signal frame_out_i_d1 : std_logic; -- frame_out_i delayed 1 system clock cycle
 	signal frame_out_i_d2 : std_logic; -- frame_out_i delayed 2 system clock cycles
 	signal frame_out_i_d3 : std_logic; -- frame_out_i delayed 3 system clock cycles
+	signal frame_out_i_d4 : std_logic; -- frame_out_i delayed 4 system clock cycles
 
 	-- Declare signals for state machine
 	type state_type is (st1_idle, st2_send_preamble, st3_send_SFD, 
@@ -299,6 +300,7 @@ begin
 		frame_out_i_d1 <= frame_out_i;
 		frame_out_i_d2 <= frame_out_i_d1;
 		frame_out_i_d3 <= frame_out_i_d2;
+		frame_out_i_d4 <= frame_out_i_d3;
 		CRC_data_in_d1 <= CRC_data_in;
 		CRC_data_in_d2 <= CRC_data_in_d1;
 	end if;
@@ -314,7 +316,7 @@ begin
 		if rising_edge(clk) then
 			data_out <= (CRC_frame_out and CRC_data_out) or 
 								(CRC_data_in_d2 and (not CRC_frame_out) 
-									and frame_out_i_d3);
+									and frame_out_i_d4);
 		end if;
 	end process;
 	
@@ -338,7 +340,7 @@ begin
 	process (clk)
 	begin
 		if rising_edge(clk) then
-			frame_out <= CRC_frame_out or frame_out_i_d3;  
+			frame_out <= CRC_frame_out or frame_out_i_d4;  
 		end if;
 	end process;
 		
@@ -378,7 +380,7 @@ begin
 			when st2_send_preamble=>
 				en_shift_ctr <= '1';
 				en_byte_ctr <= '1';
-				if byte_count = to_unsigned(8, byte_count'length) and falling_edge(clkdiv(4)) then
+				if byte_count = to_unsigned(7, byte_count'length) and falling_edge(clkdiv(4)) then
 					next_state <= st3_send_SFD;
 				else
 					next_state <= st2_send_preamble;
@@ -393,7 +395,6 @@ begin
 				end if;
 			
 			when st4_send_dest_addr=>
-				enable_crc <= '1';
 				en_shift_ctr <= '1';
 				if shift_count = to_unsigned(0, 3) and falling_edge(clkdiv(4)) then
 					next_state <= st5_send_source_addr;
@@ -402,7 +403,6 @@ begin
 				end if;
 				
 			when st5_send_source_addr=>
-				enable_crc <= '1';
 				en_shift_ctr <= '1';
 				if shift_count = to_unsigned(0,3) and falling_edge(clkdiv(4)) then
 					next_state <= st6_send_length;
@@ -411,7 +411,6 @@ begin
 				end if;
 				
 			when st6_send_length=>
-				enable_crc <= '1';
 				en_shift_ctr <= '1';
 				if shift_count = to_unsigned(0, 3) and falling_edge(clkdiv(4)) then
 					next_state <= st7_send_PDU_data;

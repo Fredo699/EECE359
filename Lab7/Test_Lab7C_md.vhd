@@ -56,6 +56,7 @@ ARCHITECTURE behavior OF Test_Lab7C_md IS
    signal dclk_out : std_logic;
    signal frame_out : std_logic;
    signal nrz_out : std_logic;
+	signal nrz_comp : std_logic;
 
    -- Clock period definitions
 --	constant clk_period : time := 20 ns;    -- Basys2
@@ -129,6 +130,7 @@ BEGIN
 			for j in 0 to 3 loop
 				byte := TEST_ARRAY(j);
 				for k in 7 downto 0 loop
+					nrz_comp <= byte(k);
 					wait until rising_edge(dclk_out);
 					-- test that decoded NRZ equals encoded data bit
 					check_NRZ <= '1';
