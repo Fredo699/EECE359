@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Test_Lab7B.xst" -ofn "/home/fred/git/EECE359/Lab7/Test_Lab7B.syr" 

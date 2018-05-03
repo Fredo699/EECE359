@@ -157,10 +157,10 @@ architecture Behavioral of Error_Detect_Demo is
 	constant RBGseed : std_logic_vector (RBGsize downto 1) := "10000001" ;
 
 	-- CRC parameters - mapped to FCS_Gen and Error_Detect CRC modules
-	constant FCS_length : integer := 5 ;
---	constant FCS_length : integer := 4 ;
-	constant P : std_logic_vector (fcs_length downto 0) := "110101" ;
---	constant P : std_logic_vector (fcs_length downto 0) := "10011" ;
+--	constant FCS_length : integer := 5 ;
+	constant FCS_length : integer := 4 ;
+--	constant P : std_logic_vector (fcs_length downto 0) := "110101" ;
+	constant P : std_logic_vector (fcs_length downto 0) := "10011" ;
 
 	signal btn : STD_LOGIC_VECTOR (3 downto 0) := "0000";
 	signal drst : std_logic ;

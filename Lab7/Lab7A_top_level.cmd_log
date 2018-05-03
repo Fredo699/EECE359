@@ -1,0 +1,17 @@
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-tqg144-2 Lab7A_top_level.ngc Lab7A_top_level.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Lab7A_top_level_map.ncd Lab7A_top_level.ngd Lab7A_top_level.pcf 
+par -w -intstyle ise -ol high -mt off Lab7A_top_level_map.ncd Lab7A_top_level.ncd Lab7A_top_level.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Lab7A_top_level.twx Lab7A_top_level.ncd -o Lab7A_top_level.twr Lab7A_top_level.pcf 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 
+xst -intstyle ise -ifn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.xst" -ofn "/home/fred/git/EECE359/Lab7/Lab7A_top_level.syr" 

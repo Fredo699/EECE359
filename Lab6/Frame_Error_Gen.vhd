@@ -76,6 +76,7 @@ architecture Behavioral of Frame_Error_Gen is
 	signal dclk_rise : std_logic ;   -- rising edge of dclk
 	signal dclk_fall : std_logic ;   -- falling edge of dclk
 	signal frame_in_rise : std_logic ;  -- rising edge of frame_in
+	signal frame_in_fall : std_logic ;  -- falling edge of frame_in
 
 	signal cntr : unsigned(25 downto 0):= (others => '0') ; 
 											     -- counter used to set the frame error rate
@@ -104,6 +105,7 @@ architecture Behavioral of Frame_Error_Gen is
 	signal shift_error_bit_reg : std_logic ;
 	signal frame_error_i : std_logic ; -- internal frame_error signal
 	signal bit_errors_i : std_logic := '0';
+	signal bit_errors_d1, bit_errors_d2 : std_logic;
 	
 begin
 
@@ -136,6 +138,10 @@ begin
 	-- (frame_in_rise)
 	-- frame_in rising edge detect
 	frame_in_rise <= frame_in_d1 AND (NOT frame_in_d2);
+	
+	-- (frame_in_fall)
+	-- frame_in falling edge detect
+	frame_in_fall <= (NOT frame_in_d1) AND frame_in_d2;
 	
 	-- (data_in_d1, data_in_d2)
 	-- generate delayed versions of data_in
@@ -249,7 +255,7 @@ begin
 	-- when mode = '1' the output of the RBG is shifted into bit 0 of this 
 	-- 	register when dclk rises.
 
-	process(clk, dclk_rise) begin
+	process(clk) begin
 		if rising_edge(clk) then
 			if dclk_rise='1' then
 				if error_mode='0' then
@@ -268,19 +274,26 @@ begin
 	-- this register is loaded with the contents of the "error_pattern_reg"
 	-- the output of bit_errors is the shifted output of error_bit_reg.
 
-	process(clk, dclk_rise) begin
+	process(clk) begin
 		if rising_edge(clk) then
 			if load_error_bit_reg='1' then
 				bit_errors_i <= bit_errors_i;
 				error_bit_reg <= error_pattern_reg;
-			elsif shift_error_bit_reg='1' and dclk_rise = '1' then
-				bit_errors_i <= error_bit_reg(frame_length - 1);
+			elsif shift_error_bit_reg='1' and dclk_fall = '1' then
+				bit_errors_i <= error_bit_reg(frame_length - 2);
 				error_bit_reg <= error_bit_reg(frame_length - 2 downto 0) & '0';
 			end if;
 		end if;
 	end process;
 	
-	bit_errors <= bit_errors_i;
+	process(clk) begin
+		if rising_edge(clk) then
+			bit_errors_d1 <= bit_errors_i;
+			bit_errors_d2 <= bit_errors_d1;
+		end if;
+	end process;
+	
+	bit_errors <= bit_errors_d2;
 
 
 	-- (data_out)
@@ -333,10 +346,10 @@ begin
 			when st3_start_errorframe=>
 				shift_error_bit_reg <= '1';
 				frame_error_i <= '1';
-				if frame_in='1' then
-					next_state <= st3_start_errorframe;
-				else
+				if frame_in_fall='1' then
 					next_state <= st4_stop_errorframe;
+				else
+					next_state <= st3_start_errorframe;
 				end if;
 			
 			when st4_stop_errorframe=>

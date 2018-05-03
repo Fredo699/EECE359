@@ -42,7 +42,7 @@ architecture Behavioral of RandBitGen is
 	-- synchronized inputs
 	signal dclk_in_d1 : std_logic; -- dclk_in delayed one system clk
 	signal dclk_in_d2 : std_logic; -- dclk_in delayed two system clks
-	signal frame_in_d1 : std_logic; -- frame_in delayed one system clk
+	signal frame_in_d1, frame_in_d2 : std_logic; -- frame_in delayed one system clk
 	signal dclk_fall : std_logic; -- falling edge of dclk_in
 	
 	-- define shift register used for the random bit generator
@@ -77,6 +77,7 @@ begin
 	begin
 		if rising_edge(clk) then
 			frame_in_d1 <= frame_in;
+			frame_in_d2 <= frame_in_d1;
 		end if;	
 	end process;
 
@@ -142,22 +143,15 @@ begin
 	-- use the appropriate delayed frame_in so it aligns correctly with the
 	--    shift register output in time
 	-- data_out should be zero when no frame is being output
-	process(clk) begin
-		if rising_edge(clk) then
-			if rst = '1' or frame_in_d1 = '0' then
-				data_out <= '0';
-			else
-				data_out <= shift_reg_F(size);
-			end if;
-		end if;
-	end process;
+	
+	data_out <= shift_reg_F(size) AND frame_in_d2;
 
 	-- (dclk_out)
 	-- generate dclk_out, again choosing the appropriate timing
-	dclk_out <= dclk_in_d1;
+	dclk_out <= dclk_in_d2;
 
 	-- (frame_out)
 	-- generate frame_out, choosing the appropriate timing
-	frame_out <= frame_in_d1;
+	frame_out <= frame_in_d2;
 
 end Behavioral;

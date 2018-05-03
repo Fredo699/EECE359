@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/fred/git/EECE359/Lab7/Lab7B_top_level.ncd
+OUTFILE=/home/fred/git/EECE359/Lab7/Lab7B_top_level.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/fred/git/EECE359/Lab7
+LICENSE=WebPack
+USER_INFO=211396640_0_0_672

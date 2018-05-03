@@ -1,0 +1,2 @@
+vhdl work "CRC.vhd"
+vhdl work "MAC_Frame_Gen.vhd"

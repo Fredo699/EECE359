@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/fred/git/EECE359/Lab7/Test_Lab7B_isim_beh.exe" -prj "/home/fred/git/EECE359/Lab7/Test_Lab7B_beh.prj" "work.Test_Lab7B" 

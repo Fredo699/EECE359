@@ -1,0 +1,789 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: Lab7B_top_level.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Lab7B_top_level.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Lab7B_top_level"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-tqg144
+
+---- Source Options
+Top Module Name                    : Lab7B_top_level
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Local_Functions.vhd" into library work
+Parsing package <Local_Functions>.
+Parsing package body <Local_Functions>.
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Data_Buffer.vhd" into library work
+Parsing entity <Data_Buffer>.
+Parsing architecture <Behavior> of entity <data_buffer>.
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/CRC.vhd" into library work
+Parsing entity <CRC>.
+Parsing architecture <Behavioral> of entity <crc>.
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/real_debounce(2).vhd" into library work
+Parsing entity <debounce>.
+Parsing architecture <Behavioral> of entity <debounce>.
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/MAC_Frame_Gen.vhd" into library work
+Parsing entity <MAC_Frame_Gen>.
+Parsing architecture <Behavioral> of entity <mac_frame_gen>.
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/LLC_PDU_Gen.vhd" into library work
+Parsing entity <LLC_PDU_Gen>.
+Parsing architecture <Behavioral> of entity <llc_pdu_gen>.
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Lab7B_top_level.vhd" into library work
+Parsing entity <Lab7B_top_level>.
+Parsing architecture <Behavioral> of entity <lab7b_top_level>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <Lab7B_top_level> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <debounce> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <LLC_PDU_Gen> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <Data_Buffer> (architecture <Behavior>) with generics from library <work>.
+
+Elaborating entity <MAC_Frame_Gen> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <CRC> (architecture <Behavioral>) with generics from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <Lab7B_top_level>.
+    Related source file is "/home/fred/git/EECE359/Lab7/Lab7B_top_level.vhd".
+        debounceDELAY = 640000
+    Summary:
+	no macro.
+Unit <Lab7B_top_level> synthesized.
+
+Synthesizing Unit <debounce>.
+    Related source file is "/home/fred/git/EECE359/Lab7/real_debounce(2).vhd".
+        DELAY = 640000
+    Found 3-bit register for signal <state>.
+    Found 22-bit register for signal <timer>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | s1                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 22-bit subtractor for signal <GND_5_o_GND_5_o_sub_1_OUT<21:0>> created at line 1308.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <debounce> synthesized.
+
+Synthesizing Unit <LLC_PDU_Gen>.
+    Related source file is "/home/fred/git/EECE359/Lab7/LLC_PDU_Gen.vhd".
+    Found 8-bit register for signal <buffer_data_in>.
+    Found 5-bit register for signal <buffer_addr>.
+    Found 8-bit register for signal <PDU_length_reg>.
+    Found 4-bit register for signal <state>.
+    Found 8-bit register for signal <shift_reg>.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 14                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | st1_idle                                       |
+    | Power Up State     | st1_idle                                       |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 5-bit adder for signal <buffer_addr[4]_GND_7_o_add_4_OUT> created at line 139.
+    Found 8-bit subtractor for signal <GND_7_o_GND_7_o_sub_19_OUT<7:0>> created at line 246.
+    Found 8-bit comparator greater for signal <GND_7_o_GND_7_o_LessThan_20_o> created at line 246
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  29 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <LLC_PDU_Gen> synthesized.
+
+Synthesizing Unit <Data_Buffer>.
+    Related source file is "/home/fred/git/EECE359/Lab7/Data_Buffer.vhd".
+        word_size = 8
+        addr_size = 5
+    Set property "buffer_type = bufg" for signal <write_clk>.
+    Found 32x8-bit single-port RAM <Mram_regfile> for signal <regfile>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <Data_Buffer> synthesized.
+
+Synthesizing Unit <MAC_Frame_Gen>.
+    Related source file is "/home/fred/git/EECE359/Lab7/MAC_Frame_Gen.vhd".
+INFO:Xst:3210 - "/home/fred/git/EECE359/Lab7/MAC_Frame_Gen.vhd" line 129: Output port <error_out> of the instance <FCS_Gen> is unconnected or connected to loadless signal.
+    Found 1-bit register for signal <clkdiv4_d1>.
+    Found 1-bit register for signal <clkdiv4_d2>.
+    Found 1-bit register for signal <clkdiv4_d3>.
+    Found 1-bit register for signal <dclk_rise>.
+    Found 1-bit register for signal <dclk_rise_d1>.
+    Found 1-bit register for signal <load_packet_sr>.
+    Found 8-bit register for signal <MAC_packet_sr>.
+    Found 3-bit register for signal <shift_count>.
+    Found 6-bit register for signal <byte_count>.
+    Found 1-bit register for signal <data_ack_i>.
+    Found 1-bit register for signal <CRC_frame_in>.
+    Found 1-bit register for signal <frame_out_i_d1>.
+    Found 1-bit register for signal <frame_out_i_d2>.
+    Found 1-bit register for signal <frame_out_i_d3>.
+    Found 1-bit register for signal <CRC_data_in_d1>.
+    Found 1-bit register for signal <CRC_data_in_d2>.
+    Found 1-bit register for signal <data_out>.
+    Found 1-bit register for signal <dclk_out>.
+    Found 1-bit register for signal <frame_out>.
+    Found 3-bit register for signal <state>.
+    Found 3-bit register for signal <next_state[2]_dff_28_OUT>.
+    Found 3-bit register for signal <next_state[2]_dff_37_OUT>.
+    Found 5-bit register for signal <clkdiv>.
+    Found 5-bit adder for signal <clkdiv[4]_GND_9_o_add_0_OUT> created at line 1241.
+    Found 3-bit adder for signal <shift_count[2]_GND_9_o_add_8_OUT> created at line 239.
+    Found 6-bit adder for signal <byte_count[5]_GND_9_o_add_13_OUT> created at line 256.
+    Found 8x1-bit Read Only RAM for signal <frame_out_i>
+    Found 8x1-bit Read Only RAM for signal <en_byte_ctr>
+    Found 8x1-bit Read Only RAM for signal <enable_CRC>
+    Found 3-bit 8-to-1 multiplexer for signal <next_state> created at line 369.
+    Found 8-bit comparator equal for signal <GND_9_o_PDU_length[7]_equal_34_o> created at line 426
+    Summary:
+	inferred   3 RAM(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  47 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   3 Multiplexer(s).
+Unit <MAC_Frame_Gen> synthesized.
+
+Synthesizing Unit <CRC>.
+    Related source file is "/home/fred/git/EECE359/Lab7/CRC.vhd".
+        fcs_length = 8
+WARNING:Xst:647 - Input <P<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <P<8:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <data_in_d2>.
+    Found 1-bit register for signal <dclk_in_d1>.
+    Found 1-bit register for signal <dclk_in_d2>.
+    Found 1-bit register for signal <frame_in_d1>.
+    Found 8-bit register for signal <C_reg>.
+    Found 1-bit register for signal <C_reg_out>.
+    Found 6-bit register for signal <fcs_bit_ctr>.
+    Found 1-bit register for signal <error_out>.
+    Found 3-bit register for signal <state>.
+    Found 1-bit register for signal <data_in_d1>.
+INFO:Xst:1799 - State det is never reached in FSM <state>.
+INFO:Xst:1799 - State det_calc is never reached in FSM <state>.
+INFO:Xst:1799 - State check_remainder is never reached in FSM <state>.
+INFO:Xst:1799 - State report_error is never reached in FSM <state>.
+    Found finite state machine <FSM_2> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | init                                           |
+    | Power Up State     | init                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 6-bit adder for signal <fcs_bit_ctr[5]_GND_10_o_add_5_OUT> created at line 266.
+    Found 1-bit 4-to-1 multiplexer for signal <data_out_MUX> created at line 97.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  21 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <CRC> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 32x8-bit single-port RAM                              : 1
+ 8x1-bit single-port Read Only RAM                     : 3
+# Adders/Subtractors                                   : 8
+ 22-bit subtractor                                     : 2
+ 3-bit adder                                           : 1
+ 5-bit adder                                           : 2
+ 6-bit adder                                           : 2
+ 8-bit subtractor                                      : 1
+# Registers                                            : 38
+ 1-bit register                                        : 23
+ 22-bit register                                       : 2
+ 3-bit register                                        : 4
+ 5-bit register                                        : 2
+ 6-bit register                                        : 2
+ 8-bit register                                        : 5
+# Comparators                                          : 2
+ 8-bit comparator equal                                : 1
+ 8-bit comparator greater                              : 1
+# Multiplexers                                         : 10
+ 1-bit 2-to-1 multiplexer                              : 2
+ 1-bit 4-to-1 multiplexer                              : 1
+ 22-bit 2-to-1 multiplexer                             : 2
+ 3-bit 2-to-1 multiplexer                              : 1
+ 3-bit 8-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 3
+# FSMs                                                 : 4
+# Xors                                                 : 5
+ 1-bit xor2                                            : 4
+ 1-bit xor4                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <CRC>.
+The following registers are absorbed into counter <fcs_bit_ctr>: 1 register on signal <fcs_bit_ctr>.
+Unit <CRC> synthesized (advanced).
+
+Synthesizing (advanced) Unit <Data_Buffer>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_regfile> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 8-bit                     |          |
+    |     clkA           | connected to signal <write_clk>     | rise     |
+    |     weA            | connected to signal <write_enable>  | high     |
+    |     addrA          | connected to signal <addr_in>       |          |
+    |     diA            | connected to signal <data_in>       |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <Data_Buffer> synthesized (advanced).
+
+Synthesizing (advanced) Unit <LLC_PDU_Gen>.
+The following registers are absorbed into counter <buffer_addr>: 1 register on signal <buffer_addr>.
+Unit <LLC_PDU_Gen> synthesized (advanced).
+
+Synthesizing (advanced) Unit <MAC_Frame_Gen>.
+The following registers are absorbed into counter <clkdiv>: 1 register on signal <clkdiv>.
+The following registers are absorbed into counter <shift_count>: 1 register on signal <shift_count>.
+The following registers are absorbed into counter <byte_count>: 1 register on signal <byte_count>.
+INFO:Xst:3231 - The small RAM <Mram_frame_out_i> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <state>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <frame_out_i>   |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_en_byte_ctr> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <state>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <en_byte_ctr>   |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_enable_CRC> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <state>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <enable_CRC>    |          |
+    -----------------------------------------------------------------------
+Unit <MAC_Frame_Gen> synthesized (advanced).
+
+Synthesizing (advanced) Unit <debounce>.
+The following registers are absorbed into counter <timer>: 1 register on signal <timer>.
+Unit <debounce> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 32x8-bit single-port distributed RAM                  : 1
+ 8x1-bit single-port distributed Read Only RAM         : 3
+# Adders/Subtractors                                   : 1
+ 8-bit subtractor                                      : 1
+# Counters                                             : 7
+ 22-bit down counter                                   : 2
+ 3-bit up counter                                      : 1
+ 5-bit up counter                                      : 2
+ 6-bit up counter                                      : 2
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+# Comparators                                          : 2
+ 8-bit comparator equal                                : 1
+ 8-bit comparator greater                              : 1
+# Multiplexers                                         : 8
+ 1-bit 2-to-1 multiplexer                              : 2
+ 1-bit 4-to-1 multiplexer                              : 1
+ 3-bit 2-to-1 multiplexer                              : 1
+ 3-bit 8-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 3
+# FSMs                                                 : 4
+# Xors                                                 : 5
+ 1-bit xor2                                            : 4
+ 1-bit xor4                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <error_out> (without init value) has a constant value of 0 in block <CRC>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <state[1:3]> with gray encoding.
+Optimizing FSM <FSM_0> on signal <state[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ s1    | 000
+ s2    | 001
+ s3    | 011
+ s4    | 010
+ s5    | 110
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <LLC_PDU_GenA/FSM_1> on signal <state[1:10]> with one-hot encoding.
+------------------------------
+ State          | Encoding
+------------------------------
+ st1_idle       | 0000000001
+ st2_det_length | 0000000010
+ st3_load       | 0000000100
+ stabilize      | 0000001000
+ st4_write      | 0000010000
+ st5_inc        | 0000100000
+ st6_rst_addr   | 0001000000
+ st7_notify     | 0010000000
+ st8_inc        | 0100000000
+ st9_check_done | 1000000000
+------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <MAC_Frame_GenA/FCS_Gen/FSM_2> on signal <state[1:2]> with sequential encoding.
+-----------------------------
+ State           | Encoding
+-----------------------------
+ init            | 00
+ gen             | 01
+ gen_calc        | 10
+ shift_crc       | 11
+ det             | unreached
+ det_calc        | unreached
+ check_remainder | unreached
+ report_error    | unreached
+-----------------------------
+WARNING:Xst:1293 - FF/Latch <PDU_length_reg_6> has a constant value of 0 in block <LLC_PDU_Gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PDU_length_reg_7> has a constant value of 0 in block <LLC_PDU_Gen>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <Lab7B_top_level> ...
+
+Optimizing unit <LLC_PDU_Gen> ...
+
+Optimizing unit <MAC_Frame_Gen> ...
+
+Optimizing unit <CRC> ...
+WARNING:Xst:1293 - FF/Latch <MAC_Frame_GenA/FCS_Gen/fcs_bit_ctr_5> has a constant value of 0 in block <Lab7B_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MAC_Frame_GenA/FCS_Gen/fcs_bit_ctr_4> has a constant value of 0 in block <Lab7B_top_level>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <MAC_Frame_GenA/CRC_data_in_d1> in Unit <Lab7B_top_level> is equivalent to the following FF/Latch, which will be removed : <MAC_Frame_GenA/FCS_Gen/data_in_d1> 
+INFO:Xst:2261 - The FF/Latch <MAC_Frame_GenA/CRC_data_in_d2> in Unit <Lab7B_top_level> is equivalent to the following FF/Latch, which will be removed : <MAC_Frame_GenA/FCS_Gen/data_in_d2> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Lab7B_top_level, actual ratio is 4.
+
+Final Macro Processing ...
+
+Processing Unit <Lab7B_top_level> :
+	Found 2-bit shift register for signal <MAC_Frame_GenA/frame_out_i_d3>.
+	Found 2-bit shift register for signal <MAC_Frame_GenA/clkdiv4_d3>.
+Unit <Lab7B_top_level> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 148
+ Flip-Flops                                            : 148
+# Shift Registers                                      : 2
+ 2-bit shift register                                  : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : Lab7B_top_level.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 265
+#      GND                         : 1
+#      INV                         : 6
+#      LUT2                        : 16
+#      LUT3                        : 36
+#      LUT4                        : 71
+#      LUT5                        : 11
+#      LUT6                        : 35
+#      MUXCY                       : 42
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 44
+# FlipFlops/Latches                : 150
+#      FD                          : 44
+#      FD_1                        : 3
+#      FDE                         : 62
+#      FDR                         : 12
+#      FDR_1                       : 3
+#      FDRE                        : 25
+#      FDS                         : 1
+# RAMS                             : 8
+#      RAM32X1S                    : 8
+# Shift Registers                  : 2
+#      SRLC16E                     : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 9
+#      IBUF                        : 6
+#      OBUF                        : 3
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             150  out of  11440     1%  
+ Number of Slice LUTs:                  185  out of   5720     3%  
+    Number used as Logic:               175  out of   5720     3%  
+    Number used as Memory:               10  out of   1440     0%  
+       Number used as RAM:                8
+       Number used as SRL:                2
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    200
+   Number with an unused Flip Flop:      50  out of    200    25%  
+   Number with an unused LUT:            15  out of    200     7%  
+   Number of fully used LUT-FF pairs:   135  out of    200    67%  
+   Number of unique control sets:        14
+
+IO Utilization: 
+ Number of IOs:                          10
+ Number of bonded IOBs:                  10  out of    102     9%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+----------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)            | Load  |
+-----------------------------------+----------------------------------+-------+
+mclk                               | BUFGP                            | 146   |
+LLC_PDU_GenA/state_FSM_FFd6        | BUFG                             | 8     |
+MAC_Frame_GenA/clkdiv_4            | NONE(MAC_Frame_GenA/next_state_2)| 6     |
+-----------------------------------+----------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 4.559ns (Maximum Frequency: 219.346MHz)
+   Minimum input arrival time before clock: 3.776ns
+   Maximum output required time after clock: 4.118ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'mclk'
+  Clock period: 4.559ns (frequency: 219.346MHz)
+  Total number of paths / destination ports: 3081 / 269
+-------------------------------------------------------------------------
+Delay:               4.559ns (Levels of Logic = 4)
+  Source:            LLC_PDU_GenA/PDU_length_reg_2 (FF)
+  Destination:       LLC_PDU_GenA/state_FSM_FFd3 (FF)
+  Source Clock:      mclk rising
+  Destination Clock: mclk rising
+
+  Data Path: LLC_PDU_GenA/PDU_length_reg_2 to LLC_PDU_GenA/state_FSM_FFd3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               5   0.525   1.069  LLC_PDU_GenA/PDU_length_reg_2 (LLC_PDU_GenA/PDU_length_reg_2)
+     LUT3:I0->O            2   0.235   1.181  LLC_PDU_GenA/GND_7_o_GND_7_o_LessThan_20_o241 (LLC_PDU_GenA/GND_7_o_GND_7_o_LessThan_20_o24)
+     LUT6:I0->O            1   0.254   0.000  LLC_PDU_GenA/GND_7_o_GND_7_o_LessThan_20_o2_F (N44)
+     MUXF7:I0->O           4   0.163   0.804  LLC_PDU_GenA/GND_7_o_GND_7_o_LessThan_20_o2 (LLC_PDU_GenA/GND_7_o_GND_7_o_LessThan_20_o)
+     LUT3:I2->O            1   0.254   0.000  LLC_PDU_GenA/state_FSM_FFd8-In1 (LLC_PDU_GenA/state_FSM_FFd8-In)
+     FDR:D                     0.074          LLC_PDU_GenA/state_FSM_FFd8
+    ----------------------------------------
+    Total                      4.559ns (1.505ns logic, 3.054ns route)
+                                       (33.0% logic, 67.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'MAC_Frame_GenA/clkdiv_4'
+  Clock period: 3.179ns (frequency: 314.564MHz)
+  Total number of paths / destination ports: 12 / 6
+-------------------------------------------------------------------------
+Delay:               3.179ns (Levels of Logic = 2)
+  Source:            MAC_Frame_GenA/_i000039_0 (FF)
+  Destination:       MAC_Frame_GenA/_i000039_0 (FF)
+  Source Clock:      MAC_Frame_GenA/clkdiv_4 falling
+  Destination Clock: MAC_Frame_GenA/clkdiv_4 falling
+
+  Data Path: MAC_Frame_GenA/_i000039_0 to MAC_Frame_GenA/_i000039_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD_1:C->Q             1   0.525   0.910  MAC_Frame_GenA/_i000039_0 (MAC_Frame_GenA/_i000039_0)
+     LUT6:I3->O            2   0.235   1.181  MAC_Frame_GenA/Mmux_next_state11 (MAC_Frame_GenA/Mmux_next_state1)
+     LUT6:I0->O            1   0.254   0.000  MAC_Frame_GenA/Mmux_next_state[2]_PWR_11_o_mux_27_OUT11 (MAC_Frame_GenA/next_state[2]_PWR_11_o_mux_27_OUT<0>)
+     FD_1:D                    0.074          MAC_Frame_GenA/_i000039_0
+    ----------------------------------------
+    Total                      3.179ns (1.088ns logic, 2.091ns route)
+                                       (34.2% logic, 65.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'mclk'
+  Total number of paths / destination ports: 12 / 10
+-------------------------------------------------------------------------
+Offset:              3.776ns (Levels of Logic = 3)
+  Source:            btn<0> (PAD)
+  Destination:       RST_debounce/state_FSM_FFd1 (FF)
+  Destination Clock: mclk rising
+
+  Data Path: btn<0> to RST_debounce/state_FSM_FFd1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.328   1.080  btn_0_IBUF (btn_0_IBUF)
+     LUT4:I0->O            1   0.254   0.790  RST_debounce/timer_eq_0<21>5_SW0 (N25)
+     LUT6:I4->O            1   0.250   0.000  RST_debounce/state_FSM_FFd1-In1 (RST_debounce/state_FSM_FFd1-In)
+     FD:D                      0.074          RST_debounce/state_FSM_FFd1
+    ----------------------------------------
+    Total                      3.776ns (1.906ns logic, 1.870ns route)
+                                       (50.5% logic, 49.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'mclk'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            MAC_Frame_GenA/dclk_out (FF)
+  Destination:       dclk_out (PAD)
+  Source Clock:      mclk rising
+
+  Data Path: MAC_Frame_GenA/dclk_out to dclk_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.525   0.681  MAC_Frame_GenA/dclk_out (MAC_Frame_GenA/dclk_out)
+     OBUF:I->O                 2.912          dclk_out_OBUF (dclk_out)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock LLC_PDU_GenA/state_FSM_FFd6
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+mclk           |    3.308|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock MAC_Frame_GenA/clkdiv_4
+-----------------------+---------+---------+---------+---------+
+                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------+---------+---------+---------+---------+
+MAC_Frame_GenA/clkdiv_4|         |         |    3.179|         |
+mclk                   |         |         |    4.410|         |
+-----------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock mclk
+---------------------------+---------+---------+---------+---------+
+                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------+---------+---------+---------+---------+
+LLC_PDU_GenA/state_FSM_FFd6|    2.958|         |         |         |
+MAC_Frame_GenA/clkdiv_4    |         |    2.724|         |         |
+mclk                       |    4.559|         |         |         |
+---------------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.10 secs
+ 
+--> 
+
+
+Total memory usage is 399616 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
+

@@ -1,0 +1,5 @@
+vhdl isim_temp "Data_Buffer.vhd"
+vhdl isim_temp "real_debounce(2).vhd"
+vhdl isim_temp "LLC_PDU_Gen.vhd"
+vhdl isim_temp "Lab7A_top_level.vhd"
+vhdl isim_temp "Test_Lab7A.vhd"

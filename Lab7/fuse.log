@@ -1,0 +1,35 @@
+Running: /home/fred/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/fred/git/EECE359/Lab7/Test_Lab7B_isim_beh.exe" -prj "/home/fred/git/EECE359/Lab7/Test_Lab7B_beh.prj" "work.Test_Lab7B" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Local_Functions.vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Data_Buffer.vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/CRC.vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/real_debounce(2).vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/MAC_Frame_Gen.vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/LLC_PDU_Gen.vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Lab7B_top_level.vhd" into library work
+Parsing VHDL file "/home/fred/git/EECE359/Lab7/Test_Lab7B.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 107848 KB
+Fuse CPU Usage: 1330 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package local_functions
+Compiling architecture behavioral of entity debounce [\debounce(3)\]
+Compiling architecture behavior of entity Data_Buffer [\Data_Buffer(8,5)\]
+Compiling architecture behavioral of entity LLC_PDU_Gen [llc_pdu_gen_default]
+Compiling architecture behavioral of entity CRC [\CRC(8)\]
+Compiling architecture behavioral of entity MAC_Frame_Gen [mac_frame_gen_default]
+Compiling architecture behavioral of entity Lab7B_top_level [\Lab7B_top_level(3)\]
+Compiling architecture behavior of entity test_lab7b
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 17 VHDL Units
+Built simulation executable /home/fred/git/EECE359/Lab7/Test_Lab7B_isim_beh.exe
+Fuse Memory Usage: 1206204 KB
+Fuse CPU Usage: 1450 ms
+GCC CPU Usage: 320 ms
