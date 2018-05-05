@@ -82,6 +82,7 @@ architecture Behavioral of MAC_Frame_Gen is
 	signal clkdiv4_d2 : std_logic; -- clkdiv bit 4 delayed two system clock cycles
 	signal clkdiv4_d3 : std_logic; -- clkdiv bit 4 delayed three system clock cycles
 	signal dclk_rise : std_logic; -- rising edge of the data clock
+	signal dclk_fall : std_logic; -- rising edge of the data clock
 	signal dclk_rise_d1 : std_logic; -- dclk_rise delayed one system clock cycle
 	signal dclk_rise_d2 : std_logic; -- dclk_rise delayed two system clock cycle
 	signal MAC_packet_sr : std_logic_vector(7 downto 0) := (others => '0'); 
@@ -105,7 +106,6 @@ architecture Behavioral of MAC_Frame_Gen is
 	signal frame_out_i_d1 : std_logic; -- frame_out_i delayed 1 system clock cycle
 	signal frame_out_i_d2 : std_logic; -- frame_out_i delayed 2 system clock cycles
 	signal frame_out_i_d3 : std_logic; -- frame_out_i delayed 3 system clock cycles
-	signal frame_out_i_d4 : std_logic; -- frame_out_i delayed 4 system clock cycles
 
 	-- Declare signals for state machine
 	type state_type is (st1_idle, st2_send_preamble, st3_send_SFD, 
@@ -162,6 +162,7 @@ begin
 			clkdiv4_d3 <= clkdiv4_d2;
 			dclk_rise <= clkdiv(4) and (not clkdiv4_d1);
 			dclk_rise_d1 <= dclk_rise;
+			dclk_fall <= (not clkdiv(4)) and clkdiv4_d1;
 		end if;
 	end process;
 	
@@ -207,10 +208,10 @@ begin
 
 	process(clk) begin
 		if rising_edge(clk) then
-			if dclk_rise_d1 = '1' then
-				if load_packet_sr = '1' then
-					MAC_packet_sr <= packet_sr_data;
-				elsif frame_out_i = '1' then
+			if load_packet_sr = '1' then
+				MAC_packet_sr <= packet_sr_data;
+			elsif dclk_rise_d1 = '1' then
+				if frame_out_i = '1' then
 					for i in MAC_packet_sr'length-1 downto 1 loop
 						MAC_packet_sr(i) <= MAC_packet_sr(i - 1);
 					end loop;
@@ -236,7 +237,7 @@ begin
 		if rising_edge(clk) then
 			if en_shift_ctr = '0' then
 				shift_count <= to_unsigned(0, shift_count'length);
-			elsif dclk_rise = '1' then
+			elsif dclk_rise_d1 = '1' then
 				shift_count <= shift_count + to_unsigned(1, shift_count'length);
 			end if;
 		end if;
@@ -300,7 +301,6 @@ begin
 		frame_out_i_d1 <= frame_out_i;
 		frame_out_i_d2 <= frame_out_i_d1;
 		frame_out_i_d3 <= frame_out_i_d2;
-		frame_out_i_d4 <= frame_out_i_d3;
 		CRC_data_in_d1 <= CRC_data_in;
 		CRC_data_in_d2 <= CRC_data_in_d1;
 	end if;
@@ -316,7 +316,7 @@ begin
 		if rising_edge(clk) then
 			data_out <= (CRC_frame_out and CRC_data_out) or 
 								(CRC_data_in_d2 and (not CRC_frame_out) 
-									and frame_out_i_d4);
+									and frame_out_i_d3);
 		end if;
 	end process;
 	
@@ -340,7 +340,7 @@ begin
 	process (clk)
 	begin
 		if rising_edge(clk) then
-			frame_out <= CRC_frame_out or frame_out_i_d4;  
+			frame_out <= CRC_frame_out or frame_out_i_d3;  
 		end if;
 	end process;
 		
@@ -363,7 +363,7 @@ begin
 		end if;
 	end process;
 	
-	process(state, clkdiv(4), data_ready, byte_count, shift_count, pdu_length) begin
+	process(state, dclk_rise, dclk_fall, data_ready, byte_count, shift_count, pdu_length) begin
 		frame_out_i <= '1';
 		enable_crc <= '0';
 		en_shift_ctr <= '0';
@@ -371,7 +371,7 @@ begin
 		case state is
 			when st1_idle=>
 				frame_out_i <= '0';
-				if data_ready = '1' and rising_edge(clkdiv(4)) then
+				if data_ready = '1' and dclk_rise = '1' then
 					next_state <= st2_send_preamble;
 				else
 					next_state <= st1_idle;
@@ -380,7 +380,7 @@ begin
 			when st2_send_preamble=>
 				en_shift_ctr <= '1';
 				en_byte_ctr <= '1';
-				if byte_count = to_unsigned(7, byte_count'length) and falling_edge(clkdiv(4)) then
+				if byte_count = to_unsigned(7, byte_count'length) and dclk_fall = '1' then
 					next_state <= st3_send_SFD;
 				else
 					next_state <= st2_send_preamble;
@@ -388,7 +388,7 @@ begin
 				
 			when st3_send_SFD=>
 				en_shift_ctr <= '1';
-				if shift_count = to_unsigned(0, 3) and falling_edge(clkdiv(4)) then
+				if shift_count = to_unsigned(0, 3) and dclk_fall = '1' then
 					next_state <= st4_send_dest_addr;
 				else
 					next_state <= st3_send_SFD;
@@ -396,7 +396,7 @@ begin
 			
 			when st4_send_dest_addr=>
 				en_shift_ctr <= '1';
-				if shift_count = to_unsigned(0, 3) and falling_edge(clkdiv(4)) then
+				if shift_count = to_unsigned(0, 3) and dclk_fall = '1' then
 					next_state <= st5_send_source_addr;
 				else
 					next_state <= st4_send_dest_addr;
@@ -404,7 +404,7 @@ begin
 				
 			when st5_send_source_addr=>
 				en_shift_ctr <= '1';
-				if shift_count = to_unsigned(0,3) and falling_edge(clkdiv(4)) then
+				if shift_count = to_unsigned(0,3) and dclk_fall = '1' then
 					next_state <= st6_send_length;
 				else
 					next_state <= st5_send_source_addr;
@@ -412,7 +412,7 @@ begin
 				
 			when st6_send_length=>
 				en_shift_ctr <= '1';
-				if shift_count = to_unsigned(0, 3) and falling_edge(clkdiv(4)) then
+				if shift_count = to_unsigned(0, 3) and dclk_fall = '1' then
 					next_state <= st7_send_PDU_data;
 				else
 					next_state <= st6_send_length;
@@ -431,7 +431,7 @@ begin
 			when st8_send_FCS=>
 				en_shift_ctr <= '1';
 				en_byte_ctr <= '1';
-				if shift_count = to_unsigned(0, 3) and falling_edge(clkdiv(4)) then
+				if shift_count = to_unsigned(0, 3) and dclk_fall = '1' then
 					next_state <= st1_idle;
 				else
 					next_state <= st8_send_FCS;

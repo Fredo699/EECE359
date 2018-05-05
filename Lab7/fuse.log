@@ -17,7 +17,7 @@ Parsing VHDL file "/home/fred/git/EECE359/Lab7/Test_Lab7D.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 108300 KB
-Fuse CPU Usage: 1270 ms
+Fuse CPU Usage: 1110 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
@@ -37,5 +37,5 @@ Waiting for 1 sub-compilation(s) to finish...
 Compiled 23 VHDL Units
 Built simulation executable /home/fred/git/EECE359/Lab7/Test_Lab7D_isim_beh.exe
 Fuse Memory Usage: 1206620 KB
-Fuse CPU Usage: 1390 ms
-GCC CPU Usage: 310 ms
+Fuse CPU Usage: 1210 ms
+GCC CPU Usage: 170 ms
